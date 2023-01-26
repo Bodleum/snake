@@ -3,6 +3,7 @@
 #include <ncurses.h>
 
 #include "./board.hpp"
+#include "./game.hpp"
 
 #define BOARD_DIM 25
 #define BOARD_ROWS BOARD_DIM
@@ -12,11 +13,20 @@ int main(int argc, char **argv) {
   initscr();
   refresh();
 
-  Board board(BOARD_ROWS, BOARD_COLS);
-  board.init();
+  Game g(BOARD_ROWS, BOARD_COLS);
 
-  board.addAt(5, 5, '#');
-  board.refresh();
+  while (!g.isOver()) {
+    // 1. Get inupt
+    g.getInput();
+
+    // 2. Update state
+    g.update();
+
+    // 3. Redraw
+    g.redraw();
+
+    // 4. Go back to 1. unless game over
+  }
 
   getch();
   endwin();

@@ -5,6 +5,7 @@
 class Board {
 public:
   Board(int height, int width);
+  ~Board() = default;
 
   void addBorder(chtype verch, chtype horch);
   inline void addBorder() {
