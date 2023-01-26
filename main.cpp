@@ -19,6 +19,8 @@ int main(int argc, char **argv) {
     // 1. Get inupt
     g.getInput();
 
+    Drawable d(10, 10, 'A');
+    g.getBoard().add(&d);
     // 2. Update state
     g.update();
 

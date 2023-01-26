@@ -2,6 +2,8 @@
 
 #include <ncurses.h>
 
+#include "./drawables.hpp"
+
 class Board {
 public:
   Board(int height, int width);
@@ -11,8 +13,8 @@ public:
   inline void addBorder() {
     box(this->board_win, this->border_verch, this->border_horch);
   }
-  inline void addAt(int y, int x, chtype ch) {
-    mvwaddch(this->board_win, y, x, ch);
+  inline void add(Drawable *d) {
+    mvwaddch(this->board_win, d->getY(), d->getX(), d->getIcon());
   }
 
   inline chtype getInput() { return wgetch(this->board_win); }

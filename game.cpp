@@ -1,5 +1,6 @@
 #include <ncurses.h>
 
+#include "./drawables.hpp"
 #include "./game.hpp"
 
 Game::Game(int height, int width) : board(height, width), game_over(false) {

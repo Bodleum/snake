@@ -1,1 +1,1 @@
-board.o: board.cpp board.hpp
+board.o: board.cpp board.hpp drawables.hpp

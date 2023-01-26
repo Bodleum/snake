@@ -9,6 +9,8 @@ public:
   Game(int height, int width);
   ~Game() = default;
 
+  inline Board getBoard() { return this->board; }
+
   void getInput();
   void update();
   void redraw();
