@@ -1,6 +1,7 @@
 #pragma once
 
 #include <ncurses.h>
+#include <utility>
 
 #include "./drawables.hpp"
 
@@ -21,17 +22,25 @@ public:
 
   inline void init() {
     this->addBorder(this->border_verch, this->border_horch);
-    this->clear();
     this->refresh();
   }
   inline void clear() {
     wclear(this->board_win);
     this->addBorder();
   }
+
   inline void refresh() { wrefresh(this->board_win); }
+
+  inline int getHeight() { return this->height; }
+  inline int getWidth() { return this->width; }
+  inline bool isEmpty(int y, int x) {
+    return mvwinch(this->board_win, y, x) == ' ';
+  }
+
+  std::pair<int, int> getRandomEmptyPos();
 
 private:
   WINDOW *board_win;
-  chtype border_verch = 0;
-  chtype border_horch = 0;
+  int height, width;
+  chtype border_verch, border_horch;
 };

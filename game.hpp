@@ -3,11 +3,12 @@
 /* #include <ncurses.h> */
 
 #include "./board.hpp"
+#include "./drawables.hpp"
 
 class Game {
 public:
   Game(int height, int width);
-  ~Game() = default;
+  ~Game();
 
   inline Board getBoard() { return this->board; }
 
@@ -20,4 +21,5 @@ public:
 private:
   Board board;
   bool game_over;
+  Apple *apple;
 };
