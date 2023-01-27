@@ -2,6 +2,8 @@ targets	:= snake
 EXT := .cpp
 objs	:= $(patsubst %$(EXT),%.o,$(wildcard *$(EXT)))
 
+.DEFAULT_GOAL := all
+
 $(targets): $(objs)
 
 CC		:= g++

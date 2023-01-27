@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
   Game g(BOARD_ROWS, BOARD_COLS);
 
   while (!g.isOver()) {
-    // 1. Get inupt
+    // 1. Get input
     g.getInput();
 
     // 2. Update state
